@@ -10,7 +10,7 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   data <- eventReactive(input$go, {
-    waitress <- waiter::Waitress$new(max = input$steps) ## Create a new Progress Bar
+    waitress <- waiter::Waitress$new(theme = "overlay-percent", max = input$steps) ## Create a new Progress Bar
     on.exit(waitress$close())  ## Automatically close it done
     
     for (i in seq_len(input$steps)) {
